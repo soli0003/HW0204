@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container" id="change" style="padding: 15%; border-radius: 5%;">
+        <h1>Choose Your Color <br>
+            Options are: <br>
+            green <br>
+            red <br>
+            purple</h1>
+        <input type="text" id="colorinput">
+        <button class="button" onclick="Colorchange()">Submit</button>
+        <a href="index.html"><button class="button">Homepage</button></a>
+    </div>
+
+    <script>
+        function Colorchange() {
+            var colorinput = document.getElementById("colorinput");
+            var changeDiv = document.getElementById("change");
+            if (colorinput.value === "green") {
+                changeDiv.classList.toggle("greenback")
+            } if (colorinput.value === "red") {
+                changeDiv.classList.toggle("redback")
+
+            } if (colorinput.value === "purple") {
+                changeDiv.classList.toggle("purpleback")
+            } else {
+                // changeDiv.style.backgroundColor.toggle("white")
+
+            }
+
+        }
+    </script>
+
+
+</body>
+
+</html>

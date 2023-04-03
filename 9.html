@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Move Example</title>
+    <link rel="stylesheet" href="style.css">
+    <style type="text/css">
+       
+
+        
+    </style>
+</head>
+
+<body>
+    <button id="travelButton" onclick="intervalID = setInterval(moveButton, 50)">Move Me</button>
+    <a href="index.html"><button class="button">Homepage</button></a>
+
+    <script>
+        var button = document.getElementById('travelButton');
+        var currentPosition = 0;
+        var direction = 'rightside';
+        var intervalID = null;
+        var isMoving = false;
+
+        function moveButton() {
+        
+            if (direction === 'rightside') {
+                currentPosition += 10;
+                if (currentPosition >= window.innerWidth - button.offsetWidth) {
+                    direction = 'leftside';
+                }
+            } else {
+                currentPosition -= 10;
+                if (currentPosition <= 0) {
+                    direction = 'rightside';
+                }
+            }
+            button.style.left = currentPosition + 'px';
+
+            
+        }
+
+       
+    </script>
+</body>
+
+</html>

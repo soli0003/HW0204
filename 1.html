@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head class="container">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Countdown Timer</h1>
+        <textarea id="Timer30" rows="10" cols="50" readonly></textarea>
+        <button class="button" onclick="timer()" id="startButton" title="Button Disabled Until Timer Finished">Start Timer</button>
+        <a href="index.html"><button class="button">Homepage</button></a>
+    </div>
+
+    <script>
+        function timer() {
+            document.getElementById("startButton").disabled = true; //Disable button while action started 
+            var count = 30;
+            var timerInterval = setInterval(function () {
+                Timer30.innerHTML += count + "\n";
+                count--;
+                if (count < 0) {
+                    clearInterval(timerInterval);
+                    Timer30.innerHTML += "BOOM!!!!";
+                    document.getElementById("startButton").disabled = false; // enable button whille action finished 
+                }
+                Timer30.scrollTop = Timer30.scrollHeight; // Auto scroll to bottom
+            }, 1000);
+        }
+
+    </script>
+</body>
+
+</html>

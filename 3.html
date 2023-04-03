@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 id="TText"></h1>
+        <input type="time" id="inputTime">
+        <button class="button" id="changeOnClick" onclick="timeChangeOnClick()">Choose Your Time</button>
+        <a href="index.html"><button class="button">Homepage</button></a>
+    </div>
+
+
+
+
+    <script>
+        window.onload = function ontime() {
+            var d = new Date();
+            let second = d.getSeconds().toString().padStart(2, '0');
+            let minute = d.getMinutes().toString().padStart(2, '0');
+            var hour = d.getHours().toString().padStart(2, '0');
+            newTime = `${hour}:${minute}`
+
+            if (hour >= 18 || hour < 6) {
+                document.body.classList.toggle("darkmode")
+                TText.innerHTML = `My calculation Shows The Time Now Is ${newTime} That Means Moon Is Shining`
+
+            } else {
+                document.body.classList.toggle("morning")
+                TText.innerHTML = `My calculation Shows The Time Now Is ${hour} That Means Sun Is Up`
+            }
+
+        }
+        function timeChangeOnClick() {
+            var inputTime = document.getElementById("inputTime").value;
+            var hour = parseInt(inputTime.slice(0, 2));
+            if (hour >= 18 || hour < 6) {
+                document.body.classList.add("darkmode")
+                document.body.classList.remove("morning")
+                TText.innerHTML = `You Chose ${inputTime} That Means NightNight`
+
+            } else {
+                document.body.classList.remove("darkmode")
+                document.body.classList.add("morning")
+                TText.innerHTML = `You Chose ${inputTime} That Means Sun Is Shining`
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
